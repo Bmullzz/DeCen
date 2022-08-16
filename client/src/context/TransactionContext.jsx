@@ -29,6 +29,14 @@ export const TransactionProvider = ({ children }) => {
         console.log(accounts);
     }
 
+    const connectWallet = async () => {
+        try {
+            
+        } catch (error) {
+            
+        }
+    }
+
     useEffect(() => {
         checkIfWalletIsConnected();
     }, []);
