@@ -20,7 +20,8 @@ const getEthereumContract = () => {
 }
 
 export const TransactionProvider = ({ children }) => {
-
+    const [connectedAccount, setConnectedAccount] = useState('');
+ 
     const checkIfWalletIsConnected = async () => {
         if(!ethereum) return alert("Please Install Metamask");
 
@@ -37,7 +38,9 @@ export const TransactionProvider = ({ children }) => {
 
             setCurrentAccount(accounts[0]);
         } catch (error) {
+            console.log(error);
             
+            throw new Error("No Ethereum Object")
         }
     }
 
@@ -46,7 +49,7 @@ export const TransactionProvider = ({ children }) => {
     }, []);
 
     return (
-        <TransactionContext.Provider value={{ value: 'test' }}>
+        <TransactionContext.Provider value={{ connectWallet }}>
             {children}
         </TransactionContext.Provider>
     );
