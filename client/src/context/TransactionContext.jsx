@@ -12,11 +12,7 @@ const getEthereumContract = () => {
     const signer = provider.getSigner();
     const transactionContract = new ethers.Contract(contractAddress, contractABI, signer);
 
-    console.log({
-        provider,
-        signer,
-        transactionContract
-    })
+    return transactionContract;
 }
 
 export const TransactionProvider = ({ children }) => {
@@ -71,7 +67,7 @@ export const TransactionProvider = ({ children }) => {
             if(!ethereum) return alert("Please Install Metamask");
 
             const { addressTo, amount, keyword, message }= formData;
-            getEthereumContract();
+            const transactionContract = getEthereumContract();
 
         } catch (error) {
             console.log(error);
