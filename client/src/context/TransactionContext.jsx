@@ -40,7 +40,7 @@ export const TransactionProvider = ({ children }) => {
         } catch (error) {
             console.log(error);
             
-            throw new Error("No Ethereum Object.")
+            throw new Error("No Ethereum Object")
         }
 
         
@@ -58,6 +58,20 @@ export const TransactionProvider = ({ children }) => {
             
             throw new Error("No Ethereum Object")
         }
+
+    }
+
+    const sendTransaction = async () => {
+        try {
+            if(!ethereum) return alert("Please Install Metamask");
+
+            //get data from the form
+        } catch (error) {
+            console.log(error);
+            
+            throw new Error("No Ethereum Object")
+        }
+
     }
 
     useEffect(() => {
